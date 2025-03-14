@@ -30,7 +30,7 @@ LETTER_POOL = {
     'Y': 2, 
     'Z': 1
 }
-
+# Check if only 10 letters
 def test_draw_letters_draws_ten():
     # Arrange/Act
     letters = draw_letters()
@@ -38,6 +38,7 @@ def test_draw_letters_draws_ten():
     # Assert
     assert len(letters) == 10
 
+# check if each element in the array is string
 def test_draw_letters_is_list_of_letter_strings():
     # Arrange/Act
     letters = draw_letters()
@@ -49,11 +50,12 @@ def test_draw_letters_is_list_of_letter_strings():
         assert type(elem) == str
         assert len(elem) == 1
 
+# check if each string in the array is not highere the amount of Letters
 def test_letter_not_selected_too_many_times():
 
     for i in range(1000):
         # Arrange/Act
-        letters = draw_letters()
+        letters = draw_letters() # [].10
 
         letter_freq = {}
         for letter in letters:
@@ -66,6 +68,7 @@ def test_letter_not_selected_too_many_times():
         for letter in letters:
             assert letter_freq[letter] <= LETTER_POOL[letter]
 
+# Check if upon execution of draw_letters gives different letters
 def test_draw_letters_returns_different_hands():
     # Arrange/Act
     hand1 = draw_letters()
