@@ -9,19 +9,19 @@ LETTER_POOL = {
 # Function to Draw Random Letters
 def draw_letters():
     
-    letter_list = []  # List to store all available letters
+    sack_of_letters = []  # List to store all available letters
     
 # Populate letter_list with available letters (e.g., 'C' appears 2 times → ['C', 'C'])
     for letter, count in LETTER_POOL.items():
-        letter_list.extend([letter] * count) # C: 3==>CCC
+        sack_of_letters.extend([letter] * count) # C: 3==>CCC
         
     drawn_letters = []  # Store the selected 10 letters
     letter_counts = {}  # Track how many times each letter is drawn
     
 # Keep drawing until we have exactly 10 letters
     while len(drawn_letters) < 10:  # Repeat until we get 10 letters
-        index = randint(0, len(letter_list) - 1) # Pick a random index from letter_list
-        letter = letter_list[index]  # Get the letter at that index
+        index = randint(0, len(sack_of_letters) - 1) # Pick a random index from letter_list
+        letter = sack_of_letters[index]  # Get the letter at that index
         
         # Count how many times this letter has been drawn
         letter_counts[letter] = letter_counts.get(letter, 0) + 1
